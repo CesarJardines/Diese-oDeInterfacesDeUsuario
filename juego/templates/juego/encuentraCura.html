@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Encuentra la cura</title>
+  <link rel="stylesheet" href="{%static '/css/encuentra_style.css'%}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section class="menu">
+  <h1>Encuentra la Cura</h1>
+  <select class="difficult-select" name="select">
+    <option value="easy">Easy</option> 
+    <option value="medium" selected>Medium</option>
+    <option value="hard">Hard</option>
+  </select>
+  <p class="score-box"></p>
+  <button id="startBtn">Start</button>
+</section>
+
+<section class="board">
+  <div class="time-box"></div>
+  <div class="scope"></div>
+</section>
+<!-- partial -->
+  <script  src="{% static '/js/scriptEC.js' %}"></script>
+
+</body>
+</html>

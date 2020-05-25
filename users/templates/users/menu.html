@@ -1,0 +1,14 @@
+<!-- Top Songs -->
+
+{% load static %}
+
+{% block title %}{% endblock title %}
+
+{% block body_content %}
+    <h1>Menú Administrador:</h1>
+    <span class="hello-msg">Hello, {{request.user}}" </a></span></span>
+
+  	 <span ><a  class="hello-msg" href="{% url 'users:homeAdmin' %}">Administrar nivel</a></span>
+ 	 <span ><a  class="hello-msg" href="{% url 'users:logout' %}">Cerrar Sesión</a></span>
+    
+{% endblock body_content %}

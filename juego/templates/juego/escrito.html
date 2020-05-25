@@ -1,0 +1,104 @@
+  {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <head>
+		  <meta charset="UTF-8"/>
+ 		 <title>Instrucciones</title>
+ 		 <link rel="stylesheet" href="{%static '/css/game.css'%}" type="text/css" />
+  			<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+  			<meta name="viewport" content="width=device-width, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+ 			<meta name="apple-mobile-web-app-capable" content="yes">
+  			<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+			</head>
+			<body>
+
+			</body>
+        <!-- Favicon-->
+      
+        <link rel="icon" type="image/x-icon" href= "{%static '/img/assets/img/favicon.ico'%}">
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{%static '/css/styles.css'%}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Guerra Biologica </a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        
+                        <a href="{% url 'juego:tesoro' %}"><i class="fa fa-fw fa-play" style="font-size:30px;color:#63b525;"></i>jugar</a>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        
+        <!-- About-->
+        <section class="page-section bg-dark text-white ">
+
+          <button onclick="typeWriter()"><i style="font-size:20px;color:#63b525;"></i>Ver instrucciones</button>
+           <div class="container">
+
+                <hr class="divider my-4 mt-5" />
+                <div class="row">
+                <p id="demo"></p>
+
+			<script>
+			var i = 0;
+			var txt = 'Muy bien, comienza tu primera misión.Lávate las manos antes de comenzar. Encuentra el objeto mas importante en el lavado de manos, veamos que tan rapido puedes hacerlo. Da clic en jugar para iniciar. ';
+			var speed = 40;
+
+				function typeWriter() {
+  				if (i < txt.length) {
+    			document.getElementById("demo").innerHTML += txt.charAt(i);
+   				 i++;
+    			setTimeout(typeWriter, speed);
+ 				 }
+			}
+			</script>
+			
+                     
+
+                </div>
+
+            </div>
+        </section>
+        
+        <footer class="bg-light py-5">
+            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Guerra Biologica</div></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{%static 'js/scripts.js'%}"></script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+{%load static%}
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        </style>
+        <meta charset="utf-8">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1,shrink-to-fit=no">
+        <meta name="description" content="Jugar memorama en línea">
+        <title>Memorama </title>
+        <link href="{%static '/css/bootstrap.min.css'%}" rel="stylesheet">
+        <link href="{%static '/css/style.css'%}" rel="stylesheet">
+    </head>
+    <body>
+        <main role="main" class="container-fluid" id="app">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">Encuentra las señales</h1>
+                    <p>
+                        <span class="h5">Intentos: </span>
+                        {{intentos}}/{{MAXIMOS_INTENTOS}}&nbsp;<span class="h5">Aciertos:
+                        </span> {{aciertos}}
+                    </p>
+                </div>
+            </div>
+            <div v-for="(fila, indiceFila) in memorama" :key="indiceFila"
+                class="row">
+                <div :key="indiceFila+''+indiceImagen" class="col-3"
+                    v-for="(imagen, indiceImagen) in fila">
+                    <div class="mb-3">
+                        <img @click="voltear(indiceFila, indiceImagen)"
+                            :class="{'girar': imagen.mostrar}"
+                            :src="(imagen.mostrar ? imagen.ruta :
+                            NOMBRE_IMAGEN_OCULTA)" class="card-img-top img-fluid
+                            img-thumbnail">
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="px-2 py-2 fixed-bottom bg-success text-white">
+        </footer>
+        <script src="{% static '/js/sweetalert2.all.min.js'%}"></script>
+        <script src="{% static '/js/vue.min.js'%}"></script>
+        <script src="{% static '/js/script2.js'%}"></script>
+    </body>
+
+</html>

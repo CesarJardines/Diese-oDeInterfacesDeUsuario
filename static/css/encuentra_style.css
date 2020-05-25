@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.menu {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/000/833/889/original/coronavirus-global-pandemic-outbreak-vector.jpg");
+  
+}
+.menu h1 {
+  font-size: 65px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.menu .difficult-select {
+  margin: 20px 0;
+  border: 1px solid #fff;
+  padding: 5px 15px;
+  font-size: 15px;
+}
+.menu .score-box {
+  display: none;
+  color: #fff;
+  margin: 0 0 10px 0;
+}
+.menu #startBtn {
+  width: 200px;
+  padding: 10px 20px;
+  font-size: 25px;
+  color: #fff;
+  outline: none;
+  border: 1px solid #fff;
+  background: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.menu #startBtn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.board {
+  display: none;
+  background: url("https://previews.123rf.com/images/pancaketom/pancaketom1404/pancaketom140400008/27320989-background-texture-of-black-ink-on-white-paper-with-many-concentric-curved-lines-Stock-Photo.jpg");
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+.board .scope {
+  display: none;
+  position: absolute;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 9999px black;
+  z-index: 3;
+}
+.board .time-box {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #fff;
+  padding: 10px 20px;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.board .wally {
+  display: none;
+  position: absolute;
+  z-index: 5;
+  width: 100px;
+  height: 120px;
+  background: url("https://i.postimg.cc/bJ7FFd7V/Pics-Art-05-07-07-30-23.png");
+  background-size: cover;
+  cursor: pointer;
+}
