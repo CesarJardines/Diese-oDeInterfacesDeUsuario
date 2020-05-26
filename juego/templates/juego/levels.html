@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>A Pandemic Adventure</title>
+        <title>Guerra Biológica</title>
         <!-- Favicon-->
         {% load static %}
         <link rel="icon" type="image/x-icon" href= "{%static '/img/assets/img/favicon.ico'%}">
@@ -41,99 +41,107 @@
            <div class="container">
 
                 <h2 class="text-center mt-0">Elige un nivel</h2>
+                <!-- Aqui empieza esta cosa -->
+                <section id="portfolio">
+                <div class="container-fluid p-0">
+                    <div class="row no-gutters">
+                        <div class="col-lg-4 col-sm-6">
+                            <a class="portfolio-box" href="{% url 'juego:mensaje1' %}">
+                                <!--Este redirecciona-->
+                                <img class="img-fluid" src="/static/img/intro.png"  />
+                                <div class="portfolio-box-caption">
+                                    <div class="project-category text-white-50">Introducción</div>
+                                    <div class="project-name">¿Podrás derrotar al virus?</div>  <!-- INTRODUCCION -->
+                                </div></a>
+                        </div>
+                    <div class="col-lg-4 col-sm-7">
+                        <a class="portfolio-box" href="{% url 'juego:instruction' %}">
+                            <img class="img-fluid" src="/static/img/jabo.png"  />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">NIVEL 1</div>
+                                <div class="project-name">Usa tu ingenio</div>  <!-- NIVEL1 -->
+                            </div></a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="{% url 'juego:mesMemo' %}"
+                            ><img class="img-fluid" src="/static/img/lupa.png" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">NIVEL 2</div>
+                                <div class="project-name">Aventurate ahora</div>  <!-- nivel2 --> 
+                            </div></a>
+                    </div>
+
+                      <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="{% url 'juego:mesGato' %}"
+                            ><img class="img-fluid" src="/static/img/pelea.png" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">NIVEL 3</div>
+                                <div class="project-name">Ganale al virus</div>  <!-- NIVEL3 --> 
+                            </div></a>
+                    </div>
+
+                      <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="{% url 'juego:mesCasa' %}"
+                            ><img class="img-fluid" src="/static/img/busca.png" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">NIVEL 4</div>
+                                <div class="project-name">Usa lo que ya aprendiste</div>  <!-- NIVEL4 --> 
+                            </div></a>
+                    </div>
+
+                      <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="{% url 'juego:simonhist' %}"
+                            ><img class="img-fluid" src="/static/img/dice.png" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">NIVEL 5</div>
+                                <div class="project-name">¿Tienes buena memoria?</div>  <!-- NIVEL5 --> 
+                            </div></a>
+                    </div>
+
+
+
+                          <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="{% url 'juego:hisBoti' %}"
+                            ><img class="img-fluid" src="/static/img/look.png" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">NIVEL 6</div>
+                                <div class="project-name">Abre bien los ojos</div>  <!-- NIVEL3 --> 
+                            </div></a>
+                    </div>
+
+                      <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="{% url 'juego:hisSopa' %}"
+                            ><img class="img-fluid" src="/static/img/letras.png" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">NIVEL 7</div>
+                                <div class="project-name">¿Sabes acerca del COVID-19?</div>  <!-- NIVEL4 --> 
+                            </div></a>
+                    </div>
+
+                      <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="{% url 'juego:hisBusca' %}"
+                            ><img class="img-fluid" src="/static/img/busca2.png" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">NIVEL 8</div>
+                                <div class="project-name">Ayudanos a encontrar la cura</div>  <!-- NIVEL5 --> 
+                            </div></a>
+                    </div>
+                   
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+                <!-- Aqui acaba esta cosa -->
                 
                 <hr class="divider my-4" />
                 <div class="row">
                 
-                     
-                    <div class="col-lg-4 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-biohazard mb-4" style=color:#63b525;></i>
-                            <h3 class="h4 mb-2 text-white">Introducción</h3>
-                            
-                            <a class="btn btn-light btn-sm" href="{% url 'juego:mensaje1' %}">Jugar</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-biohazard mb-4" style=color:#63b525;></i>
-                            <h3 class="h4 mb-2 text-white">nivel 1</h3>
-                            
-                            <a class="btn btn-light btn-sm" href="{% url 'juego:instruction' %}">Jugar</a>
-                        </div>
-                    </div>
-                      <div class="col-lg-4 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-biohazard mb-4" style=color:#63b525;></i>
-                            <h3 class="h4 mb-2 text-white">Nivel 2</h3>
-                            
-                            <a class="btn btn-light btn-sm" href="{% url 'juego:mesMemo' %}">Jugar</a>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-biohazard mb-4" style=color:#63b525;></i>
-                            <h3 class="h4 mb-2 text-white">Nivel 3</h3>
-                            
-                            <a class="btn btn-light btn-sm" href="{% url 'juego:mesGato' %}">Jugar</a>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-biohazard mb-4" style=color:#63b525;></i>
-                            <h3 class="h4 mb-2 text-white">Nivel 4</h3>
-                            
-                            <a class="btn btn-light btn-sm" href="{% url 'juego:mesCasa' %}">Jugar</a>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-biohazard mb-4" style=color:#63b525;></i>
-                            <h3 class="h4 mb-2 text-white">Nivel 5</h3>
-                            
-                            <a class="btn btn-light btn-sm" href="{% url 'juego:simonhist' %}">Jugar</a>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-biohazard mb-4" style=color:#63b525;></i>
-                            <h3 class="h4 mb-2 text-white">Nivel 6</h3>
-                            
-                            <a class="btn btn-light btn-sm" href="{% url 'juego:hisBoti' %}">Jugar</a>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-biohazard mb-4" style=color:#63b525;></i>
-                            <h3 class="h4 mb-2 text-white">Nivel 7</h3>
-                            
-                            <a class="btn btn-light btn-sm" href="{% url 'juego:hisSopa' %}">Jugar</a>
-                        </div>
-                    </div>
-                     <div class="col-lg-4 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-biohazard mb-4" style=color:#63b525;></i>
-                            <h3 class="h4 mb-2 text-white">Nivel 8</h3>
-                            
-                            <a class="btn btn-light btn-sm" href="{% url 'juego:hisBusca' %}">Jugar</a>
-                        </div>
-                    </div>
-                        <div class="col-lg-4 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-biohazard mb-4" style=color:#63b525;></i>
-                            <h3 class="h4 mb-2 text-white">Nivel 9</h3>
-                            
-                            <a class="btn btn-light btn-sm" href="{% url 'juego:hisNave' %}">Jugar</a>
-                        </div>
-                    </div>
-                   <!--  <div class="col-lg-4 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-biohazard mb-4" style=color:#63b525;></i>
-                            <h3 class="h4 mb-2 text-white">Introducción</h3>
-                            
-                            <a class="btn btn-light btn-sm" href="{% url 'users:home' %}">Jugar</a>
-                        </div>
-                    </div> -->
+                    
+                    
                     </div>
                 </div>
 
