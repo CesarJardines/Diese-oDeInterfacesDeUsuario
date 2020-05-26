@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-  {% load static %}
-=======
+
      {% load static %}
->>>>>>> 686383b5de0b58a742b32e11d043ac8b5f402728
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,9 +8,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <head>
-<<<<<<< HEAD
+
 		  <meta charset="UTF-8"/>
- 		 <title>Rompecabezas #QuedateEnCasa</title>
+ 		 <title>#QuedateEnCasa</title>
  		 <link rel="stylesheet" href="{%static '/css/game.css'%}" type="text/css" />
   			<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
   			<meta name="viewport" content="width=device-width, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
@@ -23,7 +20,7 @@
 			<body>
 
 			</body>
-=======
+
           <meta charset="UTF-8"/>
          <title>#QuedateEnCasa</title>
          <link rel="stylesheet" href="{%static '/css/game.css'%}" type="text/css" />
@@ -35,7 +32,7 @@
             <body>
 
             </body>
->>>>>>> 686383b5de0b58a742b32e11d043ac8b5f402728
+
         <!-- Favicon-->
       
         <link rel="icon" type="image/x-icon" href= "{%static '/img/assets/img/favicon.ico'%}">
@@ -50,22 +47,21 @@
         <link href="{%static '/css/styles.css'%}" rel="stylesheet" />
     </head>
     <body id="page-top">
+        <audio autoplay src="/static/img/Song_of_Sadhana.mp3" loop></audio>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-<<<<<<< HEAD
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Rompecabezas</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Sintomas del Covid-19 ¡Identificalos!</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         
-                        <a href="{% url 'juego:rompecabezas' %}"><i class="fa fa-fw fa-play" style="font-size:50px;color:#63b525;"></i>jugar </a>
-=======
+                
+
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">Guerra Biológica</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        
-                        <a href="{% url 'juego:memorama' %}"><i class="fa fa-fw fa-play" style="font-size:50px;color:#63b525;"></i>jugar </a>
->>>>>>> 686383b5de0b58a742b32e11d043ac8b5f402728
+
                         
                     </ul>
                 </div>
@@ -74,19 +70,19 @@
         <!-- Masthead-->
         
         <!-- About-->
-        <section class="page-section bg-dark text-white ">
+        <section class="page-section bg-dark text-white col-lg-12 ml-auto text-center mb-5 mb-lg-0">
 
-          <button onclick="typeWriter()"><i class="fa fa-fw fa-play" style="font-size:50px;color:#63b525;"></i>Ver instrucciones</button>
+          <button onclick="typeWriter()"><i  style="font-size:20px;color:#63b525;"></i>Tocame para ver instrucciones</button>
            <div class="container">
 
                 <hr class="divider my-4 mt-5" />
                 <div class="row">
                 <p id="demo"></p>
 
-<<<<<<< HEAD
+
 			<script>
 			var i = 0;
-			var txt = 'Bien hecho @usuario encontraste el jabón. Ahora identifica los síntomas, emparejándolas con su respectiva imagen(Identificación de código).';
+			var txt = 'Bien hecho @usuario encontraste el jabón. Ahora identifica los síntomas, emparejándolas con su respectiva imagen.';
 			var speed = 40;
 
 				function typeWriter() {
@@ -97,8 +93,10 @@
  				 }
 			}
 			</script>
-			
-=======
+			<div class="col-lg-12 ml-auto text-center mb-5 mb-lg-0"> 
+                <a href="{% url 'juego:memorama' %}"><i class="fa fa-fw fa-play" style="font-size:30px;color:#63b525;"></i>jugar </a>
+            </div>
+
             <script>
             var i = 0;
             var txt = 'Bien hecho encontraste el jabón. Ahora identifica los síntomas, emparejándolas con su respectiva imagen.';
@@ -113,7 +111,7 @@
             }
             </script>
             
->>>>>>> 686383b5de0b58a742b32e11d043ac8b5f402728
+
                      
 
                 </div>
@@ -122,11 +120,10 @@
         </section>
         
         <footer class="bg-light py-5">
-<<<<<<< HEAD
-            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - FastandHungry</div></div>
-=======
-            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Guerra Biólogica</div></div>
->>>>>>> 686383b5de0b58a742b32e11d043ac8b5f402728
+
+
+            <div class="container"><div class="small text-center text-muted">Guerra Biólogica - Facultad de Ciencias UNAM</div></div>
+
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -138,17 +135,6 @@
         <script src="{%static 'js/scripts.js'%}"></script>
     </body>
 </html>
-<<<<<<< HEAD
 
 
 
-
-
-
-
-
-
-
-
-=======
->>>>>>> 686383b5de0b58a742b32e11d043ac8b5f402728

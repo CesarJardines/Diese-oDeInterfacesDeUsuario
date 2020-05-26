@@ -32,14 +32,13 @@
         <link href="{%static '/css/styles.css'%}" rel="stylesheet" />
     </head>
     <body id="page-top">
+        <audio autoplay src="/static/img/Song_of_Sadhana.mp3" loop></audio>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Guerra Biológica</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Vence al virus</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        
-                        <a href="{% url 'juego:gato' %}"><i class="fa fa-fw fa-play" style="font-size:50px;color:#63b525;"></i>jugar </a>
                         
                     </ul>
                 </div>
@@ -48,9 +47,9 @@
         <!-- Masthead-->
         
         <!-- About-->
-        <section class="page-section bg-dark text-white ">
+        <section section class="page-section bg-dark text-white col-lg-12 ml-auto text-center mb-5 mb-lg-0">
 
-          <button onclick="typeWriter()"><i class="fa fa-fw fa-play" style="font-size:50px;color:#63b525;"></i>Ver instrucciones</button>
+          <button onclick="typeWriter()"><i style="font-size:20px;color:#63b525;"></i>Tocame para ver instrucciones</button>
            <div class="container">
 
                 <hr class="divider my-4 mt-5" />
@@ -59,7 +58,7 @@
 
             <script>
             var i = 0;
-            var txt = 'Haz avanzado ferozmente. El siguiente reto consistirá en mostrar tu mejor habilidad. El virus te ha retado a una batalla de Gato, véncelo para poder pasar al siguente nivel';
+            var txt = 'Haz avanzado ferozmente. El siguiente reto consistirá en mostrar tu mejor habilidad, el virus te ha retado a una batalla de Gato véncelo para poder pasar al siguente nivel.';
             var speed = 40;
 
                 function typeWriter() {
@@ -71,7 +70,9 @@
             }
             </script>
             
-                     
+            <div class="col-lg-12 ml-auto text-center mb-5 mb-lg-0"> 
+                <a href="{% url 'juego:gato' %}"><i class="fa fa-fw fa-play" style="font-size:30px;color:#63b525;"></i>jugar </a>
+            </div>
 
                 </div>
 
@@ -79,7 +80,7 @@
         </section>
         
         <footer class="bg-light py-5">
-            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - FastandHungry</div></div>
+            <div class="container"><div class="small text-center text-muted">Guerra Biológica - Facultad de Ciencias UNAM</div></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

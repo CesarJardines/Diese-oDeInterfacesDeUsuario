@@ -37,6 +37,7 @@
 </head>
 
 <body id="page-top">
+    <audio autoplay src="/static/img/Song_of_Sadhana.mp3" loop></audio>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
         <div class="container">
@@ -47,8 +48,6 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
 
-                    <a href="{% url 'juego:simon' %}"><i class="fa fa-fw fa-play"
-                            style="font-size:50px;color:#63b525;"></i>jugar </a>
 
                 </ul>
             </div>
@@ -57,10 +56,9 @@
     <!-- Masthead-->
 
     <!-- About-->
-    <section class="page-section bg-dark text-white ">
+    <section section class="page-section bg-dark text-white col-lg-12 ml-auto text-center mb-5 mb-lg-0">
 
-        <button onclick="typeWriter()"><i class="fa fa-fw fa-play" style="font-size:50px;color:#63b525;"></i>Ver
-            instrucciones</button>
+        <button onclick="typeWriter()"><i  style="font-size:20px;color:#63b525;"></i>Tocame para ver instrucciones</button>
         <div class="container">
 
             <hr class="divider my-4 mt-5" />
@@ -69,7 +67,7 @@
 
                 <script>
                     var i = 0;
-                    var txt = 'El gel antibacterial es muy útil, aunque no reemplazará un buen lavado de manos. Continúa con el siguiente nivel. El virus te ha retado ¿Qué tan buena es tu memoria?Sigue los patrones de colores sin equivocarte';
+                    var txt = 'El gel antibacterial es muy útil, aunque no reemplazará un buen lavado de manos, el virus te ha retado ¿Qué tan buena es tu memoria? Sigue los patrones de colores sin equivocarte.';
                     var speed = 40;
 
                     function typeWriter() {
@@ -81,7 +79,9 @@
                     }
                 </script>
 
-
+                <div class="col-lg-12 ml-auto text-center mb-5 mb-lg-0"> 
+                    <a href="{% url 'juego:simon' %}"><i class="fa fa-fw fa-play"style="font-size:30px;color:#63b525;"></i>jugar </a>
+                </div>
 
             </div>
 
@@ -90,7 +90,7 @@
 
     <footer class="bg-light py-5">
         <div class="container">
-            <div class="small text-center text-muted">Copyright © 2020 - Guerra Biólogica</div>
+            <div class="small text-center text-muted">Guerra Biólogica - Facultad de Ciencias UNAM </div>
         </div>
     </footer>
     <!-- Bootstrap core JS-->
