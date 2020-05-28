@@ -9,21 +9,52 @@
             name="viewport"
             content="width=device-width, initial-scale=1,shrink-to-fit=no">
         <meta name="description" content="Jugar memorama en línea">
-        <title>Memorama </title>
+        <title>Guerra Biológica</title>
         <link href="{%static '/css/bootstrap.min.css'%}" rel="stylesheet">
         <link href="{%static '/css/style.css'%}" rel="stylesheet">
+        <meta charset="UTF-8">
+        
+        <style type="text/css">
+        body
+        {
+            text-align: center;
+            background: #34495e;
+            color: white; 
+        }
+        </style>
     </head>
-    <body>
+    <body class="page-section bg-dark text-white col-lg-12 ml-auto text-center mb-5 mb-lg-0">
+              <link rel="icon" type="image/x-icon" href= "{%static '/img/assets/img/favicon.ico'%}">
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{%static '/css/styles.css'%}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static '/css/main.css' %}">
         <audio autoplay src="/static/img/Digital_Memories.mp3" loop></audio>
+
+         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Encuentra las señales</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        
+                        <a href="{% url 'juego:levels' %}"><i class="fa fa-fw fa-times-circle" style="font-size:50px;color:#D9381E;"></i> </a>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <main role="main" class="container-fluid" id="app">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="text-center">Encuentra las señales</h1>
-                    <p>
-                        <span class="h5">Intentos: </span>
-                        {{intentos}}/{{MAXIMOS_INTENTOS}}&nbsp;<span class="h5">Aciertos:
-                        </span> {{aciertos}}
-                    </p>
+                    
+                   
                 </div>
             </div>
             <div v-for="(fila, indiceFila) in memorama" :key="indiceFila"

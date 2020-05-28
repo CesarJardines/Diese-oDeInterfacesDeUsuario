@@ -4,10 +4,44 @@
 <html lang="es">
 	<head>
 		<link rel="stylesheet" type="text/css" href="{%static '/css/sheet.css'%}">
+			<title>Guerra Biológica</title>
+		
+		<style type="text/css">
+		body
+		{
+			text-align: center;
+			background: #34495e;
+			color: white; 
+		}
+		</style>
 
 	</head>
-	<body>
+	<body id="page-top" class="page-section bg-dark text-white col-lg-12 ml-auto text-center mb-5 mb-lg-0">
+		      <link rel="icon" type="image/x-icon" href= "{%static '/img/assets/img/favicon.ico'%}">
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{%static '/css/styles.css'%}" rel="stylesheet" />
+        <link rel="stylesheet" href="{% static '/css/main.css' %}">
 		<audio autoplay src="/static/img/Everything_Is_Fine.mp3" loop></audio>
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Encuentra el mensaje secreto</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        
+                        <a href="{% url 'juego:levels' %}"><i class="fa fa-fw fa-times-circle" style="font-size:50px;color:#D9381E;"></i> </a>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+		 
 <svg width="600" height="600" id="entorno">
 		<g id="fondo"><image href="/static/img/casa.png" width="400" height="400" x="200" y="100"></g>
 	<g class="padre" id="0"><image href="/static/img/1.png" class="movil"></g>
@@ -21,6 +55,7 @@
 	<g class="padre" id="8"><image href="/static/img/9.png" class="movil"></g>
 </svg>
 	<audio id="win" src="/static/img/ringtones-the-avengers.mp3"></audio>
+
 	 <script src="{% static '/js/script.js'%}"></script>		
 
 	</body>
