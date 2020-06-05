@@ -31,7 +31,7 @@ var OBJECT_PLAYER = 1,
 var startGame = function() {
   var ua = navigator.userAgent.toLowerCase();
 
-  // Only 1 row of stars
+  
   if(ua.match(/android/)) {
     Game.setBoard(0,new Starfield(50,0.6,100,true));
   } else {
@@ -45,7 +45,7 @@ var startGame = function() {
 };
 
 var level1 = [
- // Start,   End, Gap,  Type,   Override
+
   [ 0,      4000,  500, 'step' ],
   [ 6000,   13000, 800, 'ltr' ],
   [ 10000,  16000, 400, 'circle' ],
@@ -88,15 +88,13 @@ var Starfield = function(speed,opacity,numStars,clear) {
 
   var offset = 0;
 
-  // If the clear option is set, 
-  // make the background black instead of transparent
+  
   if(clear) {
     starCtx.fillStyle = "#000";
     starCtx.fillRect(0,0,stars.width,stars.height);
   }
 
-  // Now draw a bunch of random 2 pixel
-  // rectangles onto the offscreen canvas
+
   starCtx.fillStyle = "#FFF";
   starCtx.globalAlpha = opacity;
   for(var i=0;i<numStars;i++) {
@@ -106,13 +104,12 @@ var Starfield = function(speed,opacity,numStars,clear) {
                      2);
   }
 
-  // This method is called every frame
-  // to draw the starfield onto the canvas
+
   this.draw = function(ctx) {
     var intOffset = Math.floor(offset);
     var remaining = stars.height - intOffset;
 
-    // Draw the top half of the starfield
+    
     if(intOffset > 0) {
       ctx.drawImage(stars,
                 0, remaining,
@@ -121,7 +118,7 @@ var Starfield = function(speed,opacity,numStars,clear) {
                 stars.width, intOffset);
     }
 
-    // Draw the bottom half of the starfield
+    
     if(remaining > 0) {
       ctx.drawImage(stars,
               0, 0,
@@ -131,8 +128,7 @@ var Starfield = function(speed,opacity,numStars,clear) {
     }
   };
 
-  // This method is called to update
-  // the starfield
+
   this.step = function(dt) {
     offset += dt * speed;
     offset = offset % stars.height;
