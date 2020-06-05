@@ -1,4 +1,4 @@
-/*Programacion de JavaScript*/
+
 
 var piezas = document.getElementsByClassName('movil');
 

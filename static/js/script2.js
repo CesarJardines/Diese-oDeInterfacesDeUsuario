@@ -1,11 +1,11 @@
-const MAXIMOS_INTENTOS = 10, // Intentos máximos que tiene el jugador
-    COLUMNAS = 4, // Columnas del memorama
-    SEGUNDOS_ESPERA_VOLTEAR_IMAGEN = 1, // Por cuántos segundos mostrar ambas imágenes
-    NOMBRE_IMAGEN_OCULTA = "/static/img/question.jpg"; // La imagen que se muestra cuando la real está oculta
+const MAXIMOS_INTENTOS = 10, 
+    COLUMNAS = 4, 
+    SEGUNDOS_ESPERA_VOLTEAR_IMAGEN = 1,
+    NOMBRE_IMAGEN_OCULTA = "/static/img/question.jpg"; 
 new Vue({
     el: "#app",
     data: () => ({
-        // La ruta de las imágenes. Puede ser relativa o absoluta
+        // La ruta de las imágenes
         imagenes: [
             "/static/img/cabra.jpg",
             "/static/img/conejo.jpg",
@@ -15,7 +15,6 @@ new Vue({
             "/static/img/gato.jpg",
         ],
         memorama: [],
-        // Útiles para saber cuál fue la carta anteriormente seleccionada
         ultimasCoordenadas: {
             indiceFila: null,
             indiceImagen: null,
@@ -37,8 +36,7 @@ new Vue({
                 allowEscapeKey: false,
             });
         },
-        // Método que muestra la alerta indicando que el jugador ha perdido; después
-        // de mostrarla, se reinicia el juego
+        // Métodos
         indicarFracaso() {
             Swal.fire({
                     title: "Perdiste",
@@ -52,7 +50,7 @@ new Vue({
                 .then(this.reiniciarJuego)
         },
         
-        // Mostrar alerta de victoria y reiniciar juego
+        
         indicarVictoria() {
             Swal.fire({
                     title: "¡Ganaste!",
@@ -66,11 +64,11 @@ new Vue({
                 .then(location.href = '/mesGato/')
 
         },
-        // Método que indica si el jugador ha ganado
+        
         haGanado() {
             return this.memorama.every(arreglo => arreglo.every(imagen => imagen.acertada));
         },
-        // Ayudante para mezclar un arreglo
+        
         mezclarArreglo(a) {
             var j, x, i;
             for (i = a.length - 1; i > 0; i--) {
@@ -81,7 +79,7 @@ new Vue({
             }
             return a;
         },
-        // Aumenta un intento y verifica si el jugador ha perdido
+        
         aumentarIntento() {
             this.intentos++;
             if (this.intentos >= MAXIMOS_INTENTOS) {
@@ -149,31 +147,30 @@ new Vue({
             this.imagenes.forEach((imagen, indice) => {
                 let imagenDeMemorama = {
                     ruta: imagen,
-                    mostrar: false, // No se muestra la original
-                    acertada: false, // No es acertada al inicio
+                    mostrar: false, 
+                    acertada: false,
                 };
-                // Poner dos veces la misma imagen
+                
                 memorama.push(imagenDeMemorama, Object.assign({}, imagenDeMemorama));
             });
 
-            // Sacudir o mover arreglo; es decir, hacerlo aleatorio
+            
             this.mezclarArreglo(memorama);
 
-            // Dividirlo en subarreglos o columnas
+            
             let memoramaDividido = [];
             for (let i = 0; i < memorama.length; i += COLUMNAS) {
                 memoramaDividido.push(memorama.slice(i, i + COLUMNAS));
             }
-            // Reiniciar intentos
+            
             this.intentos = 0;
             this.aciertos = 0;
-            // Asignar a instancia de Vue para que lo dibuje
+            
             this.memorama = memoramaDividido;
         },
-        // Método que precarga las imágenes para que las mismas ya estén cargadas
-        // cuando el usuario gire la tarjeta
+       
         precargarImagenes() {
-            // Mostrar la alerta
+            
             Swal.fire({
                     title: "Cargando",
                     html: `Cargando imágenes...`,
@@ -181,7 +178,7 @@ new Vue({
                     allowEscapeKey: false,
                 })
                 .then(this.reiniciarJuego)
-                // Ponerla en modo carga
+                
             Swal.showLoading();
 
 
@@ -202,8 +199,7 @@ new Vue({
                         Swal.close();
                     }
                 });
-                // Agregamos la imagen y la removemos instantáneamente, así no se muestra
-                // pero sí se carga
+                
                 document.body.appendChild(imagen);
                 document.body.removeChild(imagen);
             });
