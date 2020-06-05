@@ -1,29 +1,29 @@
-const player = "💊";
-const computer = "🦠";
+const jugador = "💊";
+const computadora = "🦠";
 
-let board_full = false;
-let play_board = ["", "", "", "", "", "", "", "", ""];
+let tabla_llena = false;
+let tablero_juego = ["", "", "", "", "", "", "", "", ""];
 
-const board_container = document.querySelector(".play-area");
+const contenido_tablero = document.querySelector(".play-area");
 
 const winner_statement = document.getElementById("winner");
 
 check_board_complete = () => {
   let flag = true;
-  play_board.forEach(element => {
-    if (element != player && element != computer) {
+  tablero_juego.forEach(element => {
+    if (element != jugador && element != computadora) {
       flag = false;
     }
   });
-  board_full = flag;
+  tabla_llena = flag;
 };
 
 
 const check_line = (a, b, c) => {
   return (
-    play_board[a] == play_board[b] &&
-    play_board[b] == play_board[c] &&
-    (play_board[a] == player || play_board[a] == computer)
+    tablero_juego[a] == tablero_juego[b] &&
+    tablero_juego[b] == tablero_juego[c] &&
+    (tablero_juego[a] == jugador || tablero_juego[a] == computadora)
   );
 };
 
@@ -33,7 +33,7 @@ const check_match = () => {
       document.querySelector(`#block_${i}`).classList.add("win");
       document.querySelector(`#block_${i + 1}`).classList.add("win");
       document.querySelector(`#block_${i + 2}`).classList.add("win");
-      return play_board[i];
+      return tablero_juego[i];
     }
   }
   for (i = 0; i < 3; i++) {
@@ -41,42 +41,42 @@ const check_match = () => {
       document.querySelector(`#block_${i}`).classList.add("win");
       document.querySelector(`#block_${i + 3}`).classList.add("win");
       document.querySelector(`#block_${i + 6}`).classList.add("win");
-      return play_board[i];
+      return tablero_juego[i];
     }
   }
   if (check_line(0, 4, 8)) {
     document.querySelector("#block_0").classList.add("win");
     document.querySelector("#block_4").classList.add("win");
     document.querySelector("#block_8").classList.add("win");
-    return play_board[0];
+    return tablero_juego[0];
   }
   if (check_line(2, 4, 6)) {
     document.querySelector("#block_2").classList.add("win");
     document.querySelector("#block_4").classList.add("win");
     document.querySelector("#block_6").classList.add("win");
-    return play_board[2];
+    return tablero_juego[2];
   }
   return "";
 };
 
 const check_for_winner = () => {
   let res = check_match()
-  if (res == player) {
+  if (res == jugador) {
     winner.innerText = "¡Ganaste!";
     winner.classList.add("playerWin");
-    board_full = true
+    tabla_llena = true
     window.setTimeout(function(){
 
         // Move to a new location or you can do something else
         window.location.href = "/mesCasa/";
 
     }, 3000);
-  } else if (res == computer) {
+  } else if (res == computadora) {
     winner.innerText = "Perdiste :(";
     winner.classList.add("computerWin");
-    board_full = true
+    tabla_llena = true
 
-  } else if (board_full) {
+  } else if (tabla_llena) {
     winner.innerText = "¡Empate!";
     winner.classList.add("draw");
   }
@@ -84,10 +84,10 @@ const check_for_winner = () => {
 
 
 const render_board = () => {
-  board_container.innerHTML = ""
-  play_board.forEach((e, i) => {
-    board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`
-    if (e == player || e == computer) {
+  contenido_tablero.innerHTML = ""
+  tablero_juego.forEach((e, i) => {
+    contenido_tablero.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${tablero_juego[i]}</div>`
+    if (e == jugador || e == computadora) {
       document.querySelector(`#block_${i}`).classList.add("occupied");
     }
   });
@@ -100,26 +100,26 @@ const game_loop = () => {
 }
 
 const addPlayerMove = e => {
-  if (!board_full && play_board[e] == "") {
-    play_board[e] = player;
+  if (!tabla_llena && tablero_juego[e] == "") {
+    tablero_juego[e] = jugador;
     game_loop();
     addComputerMove();
   }
 };
 
 const addComputerMove = () => {
-  if (!board_full) {
+  if (!tabla_llena) {
     do {
       selected = Math.floor(Math.random() * 9);
-    } while (play_board[selected] != "");
-    play_board[selected] = computer;
+    } while (tablero_juego[selected] != "");
+    tablero_juego[selected] = computadora;
     game_loop();
   }
 };
 
 const reset_board = () => {
-  play_board = ["", "", "", "", "", "", "", "", ""];
-  board_full = false;
+  tablero_juego = ["", "", "", "", "", "", "", "", ""];
+  tabla_llena = false;
   winner.classList.remove("playerWin");
   winner.classList.remove("computerWin");
   winner.classList.remove("draw");
