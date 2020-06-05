@@ -5,16 +5,16 @@
 // } from './helper';
 
 
-// treasure coordinates
+// Tamaño de la zona para la imagen 
 const WIDTH = 626;
 const HEIGH = 400;
-
+// Lugar donde está el objeto
 let target = {
   x: 400,
   y: 220
 };
 
-// click handler
+
 let $map = document.querySelector('#map');
 let $distance = document.querySelector('#distance');
 let clicks = 0;
