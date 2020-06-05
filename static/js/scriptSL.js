@@ -27,19 +27,15 @@ var words = [ { "word": "COVID", "direction": "N", "start": 254 },
 			];
 
 
-// Prepare the wordsearch with random letters and word layout
 $(document).ready(function() {
-	// grab the size of the grid.  I used this method in case I need to 
-	// scale this word search in the future
 	var size = 400; //($(".left").css("width").slice(0, 3) - 20) / 2 ;
 
-	// put random letters on the board
 	for (var i = 0; i < size; i++) {
 		$(".letters").append("<span class='" + (i + 1) + "'>" + 
 							getRandomLetter() + "</span>");
 	}
 
-	// insert the words onto the board
+	
 	for (var i = 0; i < words.length; i++) {
 		words[i].end = words[i].start;
 		displayWord(words[i]);
@@ -98,7 +94,7 @@ function displayWord(w) {
 }
 
 
-// start of x & y, end of x & y.  
+// inicio y fin de x y 
 var sX, sY, eX, eY, canvas, ctx, height, width, diff;
 var r = 14;
 var n = Math.sqrt((r * r) / 2);
@@ -114,7 +110,7 @@ $(document).ready(function() {
 			setCanvas("c");			
 			isMouseDown = true;
       
-      // Used for Firefox
+      // para firefox
 			sX = e.offsetX || e.clientX - $(e.target).offset().left;
 			sY = e.offsetY || e.clientY - $(e.target).offset().top;
 			// adjust the center of the arc 
@@ -161,7 +157,7 @@ $(document).ready(function() {
 						alert("Good job!");
 						 window.setTimeout(function(){
 
-        // Move to a new location or you can do something else
+        
       					  window.location.href = "/hisBusca/";
 
    						 }, 3000);
@@ -178,10 +174,9 @@ $(document).ready(function() {
 	});
 })
 
-// This function is called when lines need to be drawn on the game
+// dibuja lineas
 function draw(f) {
-	// used to draw an arc.  takes in two numbers that represent the beginning
-	// and end of the arc
+	// dibuja arco
 	function drawArc(xArc, yArc, num1, num2) {
 		ctx.lineWidth = 2;
 		ctx.beginPath();
@@ -190,7 +185,7 @@ function draw(f) {
 		ctx.stroke();
 	}
 
-	// used to draw the two lines around letters
+	// encierra letras
 	function drawLines(mX1, mY1, lX1, lY1, mX2, mY2, lX2, lY2) {
 		ctx.beginPath();
 		ctx.moveTo(mX1, mY1);
@@ -199,19 +194,14 @@ function draw(f) {
 		ctx.lineTo(lX2, lY2);
 		ctx.stroke();
 	}
-	// Check and see what event occured and create the action that belongs to that 
-	// event.
+	// escucha eventos
 	if (f == "mousedown"){
 		ctx.clearRect(0, 0, width, height);
 		drawArc(sX, sY, 0, 2);
 	}
 	else if (f == "mousemove" || f == "mouseup") {
 		/* 
-		This is to show the rise over run I used to get the limits for 
-		all eight directions.  This tells the conditionals when to activiate
-		the lines and in which direction.
-		rise = (sY - eY) * Math.sqrt(6);
-		run = sX - eX;
+		limites de direcciones
 		 */	  
 		limit = ((sY - eY) * Math.sqrt(6)) / (sX - eX);
 		// UP
@@ -221,14 +211,13 @@ function draw(f) {
 			drawArc(sX, sY, 0, 1); // draw bottom arc
 			drawArc(sX, eY, 1, 2); // draw top arc
 
-			// draw the two lines that connect the bottom and the top arcs
+			// lineas encierra palabras
 			drawLines(sX + r, sY, sX + r, eY, sX - r, sY, sX -r, eY);	
 
-			// if the player is selecting this as the last letter set its position 
-			// for wordcheck
+			// checa palabra
 			if (f == "mouseup") setPos(sX, eY, "end");	
 		}
-		// DOWN
+		// abajo
 		if ((limit < -6 || limit > 6) && eY > sY) {
 			// clear the canvas
 			if (f == "mousemove") ctx.clearRect(0, 0, width, height);
@@ -237,7 +226,7 @@ function draw(f) {
 			drawLines(sX + r, sY, sX + r, eY, sX - r, sY, sX -r, eY);
 			if (f == "mouseup") setPos(sX, eY, "end");		
 		}				
-		// LEFT
+		// izquierda
 		if ((limit < 1 && limit > -1) && eX < sX) {
 			if (f == "mousemove") ctx.clearRect(0, 0, width, height);
 			drawArc(sX, sY, 1.5, 0.5);
@@ -259,7 +248,7 @@ function draw(f) {
 		lines.  It also creates a diff for the difference between the 
 		start and the end of the arcs 
 		*/
-		// NW
+		// noroeste
 		if ((limit > 1 && limit < 6) && (eX < sX && eY < sY)) {
 			if (f == "mousemove") ctx.clearRect(0, 0, width, height);
 			diff = sX - eX;
@@ -270,7 +259,7 @@ function draw(f) {
 			if (f == "mouseup") setPos(sX - diff, sY - diff, "end");
 		} 
 
-		// NE
+		// noreste
 		if ((limit < -1 && limit > -6) && (eX > sX && eY < sY)) {
 			if (f == "mousemove") ctx.clearRect(0, 0, width, height);
 			diff = sX - eX;
@@ -280,7 +269,7 @@ function draw(f) {
 					  sX - n, sY - n, sX - n - diff, sY - n + diff);
 			if (f == "mouseup") setPos(sX - diff, sY + diff, "end");
 		} 
-		// SW
+		// suroeste
 		if ((limit < -1 && limit > -6) && (eX < sX && eY > sY)) {
 			if (f == "mousemove") ctx.clearRect(0, 0, width, height);
 			diff = sX - eX;
@@ -290,7 +279,7 @@ function draw(f) {
 					  sX - n, sY - n, sX - n - diff, sY - n + diff);
 			if (f == "mouseup") setPos(sX - diff, sY + diff, "end");
 		} 
-		// SE
+		// Sureste
 		if ((limit > 1 && limit < 6) && (eX > sX && eY > sY)) {
 			if (f == "mousemove") ctx.clearRect(0, 0, width, height);
 			diff = sX - eX;
@@ -309,7 +298,7 @@ function draw(f) {
 }
 
 
-// change the canvas between the bottom and top layer
+// canvas
 function setCanvas(id) {
 	canvas = document.getElementById(id);
 	ctx = canvas.getContext("2d");
@@ -318,7 +307,6 @@ function setCanvas(id) {
 }
 
 
-// set the offsets to numbers that match the class names of each letter
 function setPos(x, y, loc) {
 	tX = Math.floor((x / 8) / 5 ) + 1;
 	tY = Math.floor((y / 8) / 5 ) + 1;
@@ -327,21 +315,18 @@ function setPos(x, y, loc) {
 }
 
 
-// verify if the word chosen is the correct one. If a player decides
-// to highlight a word starting from last letter to first this function
-// will also support that ability
 function checkWord() {
-	// clears the pos array so that a player cannot highlight the same word twice
+	
 	function clearPos(p) {
 		p.start = p.end = 0;
 		return true;
 	}
-	// user highlights from first letter to last
+	// resalta palabra inicio a fin
 	if (pos.some(function(o) { return o.start === click.startPos &&
 							   o.end === click.endPos && clearPos(o); })) {
 		return true;
 	}
-	// if user highlights from last letter to first
+	// resalta palabra fin a inicio
 	else if (pos.some(function(o) { return o.start === click.endPos &&
 									o.end === click.startPos && clearPos(o); })) {
 		return true;
@@ -349,7 +334,7 @@ function checkWord() {
 	else return false;
 }
 
-// scratch the word on the right out when the word is found on the left
+// de derecha a izq
 function scratchWord() {
 	for (var i = 0; i < words.length; i++) {
 		if ((click.startPos === words[i].start && click.endPos === words[i].end) ||
@@ -358,7 +343,7 @@ function scratchWord() {
 			$(".words").find("." + i).addClass("strike");		
 		}
 	}
-	// check if the game is over
+	// juego terminado (?)
 
 }
 
