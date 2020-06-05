@@ -5,7 +5,6 @@
 // } from './helper';
 
 
-// treasure coordinates
 const WIDTH = 626;
 const HEIGH = 352;
 
@@ -14,7 +13,7 @@ let target = {
   y: 190
 };
 
-// click handler
+
 let $map = document.querySelector('#map');
 let $distance = document.querySelector('#distance');
 let clicks = 0;
